@@ -1,4 +1,4 @@
-import { JSX, useState } from 'react'
+import { useState } from 'react'
 import { AnimatePresence, motion } from 'framer-motion'
 import clsx from 'clsx'
 
@@ -10,7 +10,7 @@ type ColorCardProps = {
 export function ColorCard(props: ColorCardProps): JSX.Element {
   const { className, layoutId, onClick } = props
   const cardClasses = clsx(
-    'h-44 rounded-xl flex flex-col overflow-hidden cursor-pointer hover:shadow-lg w-full',
+    'h-36 rounded-xl flex flex-col overflow-hidden cursor-pointer  w-full',
     className && className
   )
   return (
@@ -28,11 +28,6 @@ export function ColorCard(props: ColorCardProps): JSX.Element {
         <div className="flex-1 bg-blue-300"></div>
         <div className="flex-1 bg-blue-400"></div>
         <div className="flex-1 bg-blue-500"></div>
-        <div className="flex-1 bg-blue-600"></div>
-        <div className="flex-1 bg-blue-700"></div>
-        <div className="flex-1 bg-blue-800"></div>
-        <div className="flex-1 bg-blue-900"></div>
-        <div className="flex-1 bg-blue-950"></div>
       </div>
     </motion.div>
   )
@@ -40,7 +35,7 @@ export function ColorCard(props: ColorCardProps): JSX.Element {
 
 export function ColorCardGroup(): JSX.Element {
   return (
-    <div className="w-full grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
+    <div className="w-full pb-nav grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-2">
       <Demo />
     </div>
   )
@@ -94,16 +89,16 @@ function Demo(): JSX.Element {
 
       <AnimatePresence>
         {selectedId && (
-          <div className="absolute h-full z-50 w-full flex justify-center left-0 top-0 items-center overflow-hidden">
+          <div className="absolute h-full z-50 w-full flex justify-center left-0 top-0 items-center overflow-hidden p-2">
             <motion.div
-              className="absolute -z-0 left-0 top-0 h-full w-full bg-white "
+              className="absolute -z-[1] left-0 top-0 h-full w-full bg-white "
               variants={container}
               initial="hidden"
               animate="show"
               onClick={() => setSelectedId(null)}
               exit={{ opacity: 0 }}
             />
-            <ColorCard layoutId={selectedId} className="h-72 relative z-10 w-full md:w-96" />
+            <ColorCard layoutId={selectedId} className="w-full md:w-96 h-52" />
           </div>
         )}
       </AnimatePresence>

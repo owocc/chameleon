@@ -1,8 +1,11 @@
-appId: com.electron.app
+appId: owoc.ocolor.app
 productName: o-color
 directories:
-  buildResources: build
+  buildResources: './dist'
+  output: './build'
 files:
+  - dist/**/*
+  - drizzle/**/*
   - '!**/.vscode/*'
   - '!src/*'
   - '!electron.vite.config.{js,ts,mjs,cjs}'
@@ -25,9 +28,9 @@ mac:
     - NSMicrophoneUsageDescription: Application requests access to the device's microphone.
     - NSDocumentsFolderUsageDescription: Application requests access to the user's Documents folder.
     - NSDownloadsFolderUsageDescription: Application requests access to the user's Downloads folder.
+  artifactName: ${name}-macos-${arch}.${ext}
   notarize: false
-dmg:
-  artifactName: ${name}-${version}.${ext}
+  darkModeSupport: true
 linux:
   target:
     - AppImage

@@ -1,7 +1,7 @@
 import type { Config } from 'tailwindcss'
 import flowbitePlugin from 'flowbite/plugin'
 import tailwindScrollBar from 'tailwind-scrollbar'
-import { tailwindElectronPlugin } from './src/shared/tailwind/tailwindElectronPlugin'
+import { tailwindElectronPlugin } from './src/renderer/lib/tailwindElectronPlugin'
 
 export default {
   content: [
@@ -22,5 +22,6 @@ export default {
       }
     }
   },
+  darkMode: ['selector', '[data-mode="dark"]'],
   plugins: [flowbitePlugin, tailwindElectronPlugin, tailwindScrollBar({ nocompatible: true })]
 } satisfies Config

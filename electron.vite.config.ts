@@ -4,17 +4,35 @@ import react from '@vitejs/plugin-react-swc'
 
 export default defineConfig({
   main: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [externalizeDepsPlugin()],
+    build: {
+      outDir: 'dist/main',
+      lib: {
+        entry: './src/main/entrypoint.ts'
+      }
+    }
   },
   preload: {
-    plugins: [externalizeDepsPlugin()]
+    plugins: [externalizeDepsPlugin()],
+    build: {
+      outDir: 'dist/preload',
+      lib: {
+        entry: './src/preload/entrypoint.ts'
+      }
+    }
   },
   renderer: {
+    plugins: [react()],
+    appType: 'spa',
     resolve: {
       alias: {
-        '@renderer': resolve('src/renderer/src')
+        '@renderer': resolve('src/renderer/')
       }
     },
-    plugins: [react()]
+    build: {
+      sourcemap: true,
+      emptyOutDir: true,
+      outDir: 'dist/renderer'
+    }
   }
 })

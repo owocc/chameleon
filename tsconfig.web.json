@@ -6,9 +6,11 @@
     "src/renderer/**/*.tsx",
     "src/preload/*.d.ts",
     "src/renderer/views/App.tsx",
-    "src/renderer/components", "src/shared/tailwind/tailwindElectronPlugin.ts",
+    "src/renderer/components",
+    "src/shared/**/*",
   ],
   "compilerOptions": {
+    "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "composite": true,
     "jsx": "react-jsx",
     "baseUrl": ".",

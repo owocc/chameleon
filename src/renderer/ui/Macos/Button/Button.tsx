@@ -1,4 +1,3 @@
-import { JSX } from 'react'
 type IconButtonProps = {
   icon: JSX.Element
 }

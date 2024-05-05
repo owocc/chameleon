@@ -1,11 +1,10 @@
-import { JSX } from 'react'
-
-import { ColorCardGroup } from '../components/common/ColorCard/ColorCard'
+import { Outlet } from 'react-router-dom'
+import MacosLayout from '@renderer/layouts/macos/MacosLayout'
 function ViewRoot(): JSX.Element {
   return (
-    <div className="h-full p-4 overflow-y-auto relative overflow-x-hidden w-full ">
-      <ColorCardGroup />
-    </div>
+    <MacosLayout>
+      <Outlet />
+    </MacosLayout>
   )
 }
 

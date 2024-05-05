@@ -1,10 +1,10 @@
-// 默认布局,使用 macos 风格, 适合桌面应用
+// macos 布局, 适合桌面应用
 import { JSX, useState } from 'react'
 import { IconContext } from 'react-icons'
-import Header from '../../components/ui/macos/Header/Header'
-import Sidebar from '../../components/ui/macos/Sidebar/Sidebar'
+import Header from '../../ui/Macos/Header/Header'
+import Sidebar from '../../ui/Macos/Sidebar/Sidebar'
 import { type SidebarStatus } from '../../../shared/types/layout'
-import SideBarSplitLine from '../../components/common/SideBarSplitLine/SideBarSplitLine'
+// import SideBarSplitLine from '../../components/Common/SideBarSplitLine/SideBarSplitLine'
 type DefaultLayoutProps = {
   children?: JSX.Element
 }
@@ -25,8 +25,10 @@ function MacosLayout({ children }: DefaultLayoutProps): JSX.Element {
       <div className="h-screen w-screen flex overflow-hidden scrollbar-thumb-black/25 scrollbar-track-transparent">
         <Header sidebarStatus={sidebarStatus} />
         <Sidebar sidebarStatus={sidebarStatus} setSidebarStatus={setSidebarStatus} />
-        <main className="flex-1 bg-white pt-nav  w-full">
-          <div className="h-full w-full relative">{children}</div>
+        <main className="flex-1 bg-white pt-nav relative  w-full">
+          <div className="h-full w-full overflow-y-scroll overflow-x-hidden scrollbar-thin scrollbar-thumb-black/20 scrollbar-thumb-rounded-full">
+            {children}
+          </div>
         </main>
       </div>
     </IconContext.Provider>

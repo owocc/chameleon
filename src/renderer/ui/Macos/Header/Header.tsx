@@ -1,4 +1,3 @@
-import { JSX } from 'react'
 import { FiSidebar, FiChevronLeft, FiSearch } from 'react-icons/fi'
 import { IconButton } from '../Button/Button'
 import { SidebarStatus } from 'src/shared/types/layout'
@@ -9,7 +8,7 @@ type Props = {
 function Header(props: Props): JSX.Element {
   const { sidebarStatus } = props
   return (
-    <nav className="h-nav z-40 flex fixed top-0 left-0 items-center  drag w-screen ">
+    <nav className="h-nav z-10 flex fixed top-0 left-0 items-center  drag w-screen ">
       <HeaderSideBar sidebarStatus={sidebarStatus} />
       <div className="flex items-center bg-white flex-1 justify-between px-2 border-b border-black/10 h-full py-2">
         <div className="flex items-center gap-2">
