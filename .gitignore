@@ -68,3 +68,5 @@ build/
 .DS_Store
 .swc
 .out
+package-lock.json
+pnpm-lock.yaml

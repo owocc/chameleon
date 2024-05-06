@@ -4,7 +4,6 @@ import channels from '../shared/lib/ipc-channels'
 // Custom APIs for renderer
 const api = {
   execute: (...args): Promise<void> => ipcRenderer.invoke(channels.DB_EXECUTE, ...args),
-  demo: () => ipcRenderer.invoke('demo')
 }
 
 // Use `contextBridge` APIs to expose Electron APIs to

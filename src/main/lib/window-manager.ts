@@ -10,6 +10,7 @@ const baseBrowserWindow: Electron.BrowserWindowConstructorOptions = {
   height: 670,
   show: false,
   title: 'o-Color',
+  titleBarStyle: 'hidden',
   // icon: icon,
   webPreferences: {
     preload: join(__dirname, '../preload/entrypoint.js'),
@@ -37,9 +38,20 @@ const macosConfig = (): Electron.BrowserWindowConstructorOptions => {
   }
 }
 
+const windowsConfig = (): Electron.BrowserWindowConstructorOptions => {
+  return {
+    titleBarStyle: 'hidden',
+    titleBarOverlay:true,
+    backgroundMaterial:"mica"
+  }
+}
+
 const loadBrowserWindowConfig = (): Electron.BrowserWindowConstructorOptions => {
   if (process.platform === 'darwin') {
     return { ...baseBrowserWindow, ...macosConfig() }
+  }
+  if (process.platform === 'win32') {
+    return { ...baseBrowserWindow, ...windowsConfig() }
   }
   // 其它系统配置...
 

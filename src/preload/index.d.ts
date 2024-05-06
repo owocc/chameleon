@@ -4,7 +4,7 @@ declare global {
   interface Window {
     electron: ElectronAPI
     api: {
-      execute: any
+      execute: ()=> Promise<void>
     }
   }
 }

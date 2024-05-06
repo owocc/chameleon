@@ -25,10 +25,14 @@ export default class DatabaseModule extends Module {
     fs.mkdirSync(path.dirname(this.dbPath), { recursive: true })
     try {
       await this.runMigrate()
-      ipcMain.handle(channels.DB_EXECUTE, this.execute)
     } catch (err) {
       logger.error('Migrate Fail', err)
     }
+    this.ipcHandlerInit()
+  }
+
+  ipcHandlerInit() {
+    ipcMain.handle(channels.DB_EXECUTE, this.execute)
   }
 
   toDrizzleResult(row: Record<string, unknown>): unknown
