@@ -37,26 +37,42 @@ const macosConfig = (): Electron.BrowserWindowConstructorOptions => {
     }
   }
 }
-
+/**
+ * 对于 windows 平台的特别处理
+ * @returns 
+ */
 const windowsConfig = (): Electron.BrowserWindowConstructorOptions => {
   return {
     titleBarStyle: 'hidden',
-    titleBarOverlay:true,
-    backgroundMaterial:"mica"
+    titleBarOverlay: true,
+    backgroundMaterial: "mica"
+  }
+}
+
+/**
+ * 对于 linux 平台的特别处理
+ * @returns 
+ */
+const linuxConfig = (): Electron.BrowserWindowConstructorOptions => {
+  return {
   }
 }
 
 const loadBrowserWindowConfig = (): Electron.BrowserWindowConstructorOptions => {
-  if (process.platform === 'darwin') {
-    return { ...baseBrowserWindow, ...macosConfig() }
-  }
-  if (process.platform === 'win32') {
-    return { ...baseBrowserWindow, ...windowsConfig() }
-  }
-  // 其它系统配置...
 
-  // 如果不属于需要定制处理的平台,就返回基本的配置项
-  return baseBrowserWindow
+  switch (process.platform) {
+    case 'darwin':
+      return { ...baseBrowserWindow, ...macosConfig() }
+    case 'win32':
+      return { ...baseBrowserWindow, ...windowsConfig() }
+    case 'linux':
+      return { ...baseBrowserWindow, ...linuxConfig() }
+    default:
+      // 其它系统配置...
+      // 如果不属于需要定制处理的平台,就返回基本的配置项
+      return baseBrowserWindow
+  }
+
 }
 
 export const createWindow = (): BrowserWindow => {

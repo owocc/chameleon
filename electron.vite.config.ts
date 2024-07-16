@@ -24,6 +24,9 @@ export default defineConfig({
   renderer: {
     plugins: [react()],
     appType: 'spa',
+    server:{
+      port:8879
+    },
     resolve: {
       alias: {
         '@renderer': resolve('src/renderer/')
