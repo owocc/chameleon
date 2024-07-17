@@ -1,0 +1,7 @@
+{
+  "TSX Author Template": {
+    "prefix": "author",
+    "description": "Create Author Comment Block",
+    "body": ["/**", " * @description $1", " * @author owocc", " */"]
+  }
+}
