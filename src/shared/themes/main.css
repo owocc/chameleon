@@ -1,9 +1,0 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-:root {
-  --header-height: 52px;
-  /* 禁用用户直接选择文字 */
-  user-select: none;
-  -webkit-user-select: none;
-}
