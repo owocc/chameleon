@@ -4,7 +4,8 @@
   "description": "",
   "private": true,
   "scripts": {
-    "dev": "turbo run dev"
+    "dev": "turbo run dev",
+    "dev:el" : "turbo dev --filter=@chameleon/electron"
   },
   "keywords": [],
   "author": "owocc",
