@@ -9,19 +9,13 @@ import { linuxConfig } from './linux-config'
  * @returns
  */
 const loadBrowserWindowConfig = (): Electron.BrowserWindowConstructorOptions => {
-  let platformConfig: Electron.BrowserWindowConstructorOptions = {}
-  switch (process.platform) {
-    case 'darwin':
-      platformConfig = macosConfig()
-      break
-    case 'win32':
-      platformConfig = windowsConfig()
-      break
-    case 'linux':
-      platformConfig = linuxConfig()
-      break
-  }
-  return { ...basicBrowserWindow, ...platformConfig }
+  const platformConfigMap = new Map<string, () => Electron.BrowserWindowConstructorOptions>([
+    ['darwin', macosConfig],
+    ['win32', windowsConfig],
+    ['linux', linuxConfig]
+  ])
+  const platformConfig = platformConfigMap.get(process.platform) || (() => ({}))
+  return { ...basicBrowserWindow, ...platformConfig() }
 }
 
 export const createWindow = (): BrowserWindow => {

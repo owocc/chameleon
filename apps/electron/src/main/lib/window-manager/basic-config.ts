@@ -8,7 +8,6 @@ export const basicBrowserWindow: Electron.BrowserWindowConstructorOptions = {
   height: 670,
   show: false,
   title: 'o-Color',
-  titleBarStyle: 'hidden',
   // icon: icon,
   webPreferences: {
     preload: join(__dirname, '../preload/entrypoint.js'),

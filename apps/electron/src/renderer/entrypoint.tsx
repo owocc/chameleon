@@ -4,9 +4,6 @@ import ReactDOM from 'react-dom/client'
 import { RouterProvider } from 'react-router-dom'
 import router from './views/router'
 // const ipcHandle = (): void => window.electron.ipcRenderer.send('ping')
-import { ma } from '@chameleon/macos'
-
-console.log(ma)
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <RouterProvider router={router} />

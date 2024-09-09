@@ -1,0 +1,14 @@
+{
+  "build:unpack": "npm run build && electron-builder --dir",
+  "build:win": "npm run build && electron-builder --win",
+  "build:nocheck": "electron-vite build",
+  "build:win-nocheck": "electron-builder --win",
+  "build:mac": "electron-vite build && electron-builder --mac",
+  "build:linux": "electron-vite build:nocheck && electron-builder --linux",
+  "typecheck:node": "tsc --noEmit -p tsconfig.node.json --composite false",
+  "typecheck:web": "tsc --noEmit -p tsconfig.web.json --composite false",
+  "typecheck": "npm run typecheck:node && npm run typecheck:web",
+
+  "@chameleon/macos": "workspace:*",
+  "db:generate": "npx drizzle-kit generate:sqlite"
+}

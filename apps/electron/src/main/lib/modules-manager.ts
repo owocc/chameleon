@@ -18,3 +18,4 @@ export const init = async (...modules: Module[]): Promise<void> => {
     )
   })
 }
+// 这里可能要改为纯函数好一些
