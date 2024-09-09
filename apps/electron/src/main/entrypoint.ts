@@ -5,9 +5,7 @@ import * as ModulesManager from './lib/modules-manager'
 import DevtoolsModule from './modules/DevtoolsModule'
 import ApplicationMenuModule from './modules/ApplicationMenuModule'
 import WindowLoadModuel from './modules/WindowLoadModuel'
-import DatabaseModule from './modules/DatabaseModule'
-
-// import icon from '../../resources/icon.png?asset'
+// import DatabaseModule from './modules/DatabaseModule'
 
 let mainWindow: Electron.BrowserWindow | null = null
 /**
@@ -23,8 +21,8 @@ nativeTheme.themeSource = 'light'
 // const color = systemPreferences
 app.on('ready', async () => {
   electronApp.setAppUserModelId('owocc.ocolor')
-  const databaseModule = new DatabaseModule()
-  await ModulesManager.init(databaseModule)
+  // const databaseModule = new DatabaseModule()
+  // await ModulesManager.init(databaseModule)
 
   mainWindow = createWindow()
 
